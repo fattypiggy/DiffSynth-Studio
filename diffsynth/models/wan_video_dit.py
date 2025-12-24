@@ -340,8 +340,11 @@ class WanModel(torch.nn.Module):
         if self.control_adapter is not None and control_camera_latents_input is not None:
             y_camera = self.control_adapter(control_camera_latents_input)
             x = [u + v for u, v in zip(x, y_camera)]
-            x = x[0].unsqueeze(0)
-        return x
+            x = torch.stack(x, dim=0) # Fixes the x[0].unsqueeze(0) bug for batch > 1 too
+        
+        b, c, f, h, w = x.shape
+        x = rearrange(x, 'b c f h w -> b (f h w) c')
+        return x, (f, h, w)
 
     def unpatchify(self, x: torch.Tensor, grid_size: torch.Tensor):
         return rearrange(

@@ -173,3 +173,18 @@ cython_debug/
 #  and can be added to the global gitignore or merged into this file.  For a more nuclear
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
+# Delit Project Specific
+testdata/
+output/
+diffsynth/Wan2.2-I2V-A14B
+diffsynth/relit/
+
+
+# Exclude Images (will verify specific keep-files later)
+*.png
+*.jpg
+*.jpeg
+*.exr
+*.hdr
+*.webp
+
