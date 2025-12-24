@@ -1,24 +1,26 @@
-# FaceOLAT Delit 训练系统依赖
+# FaceOLAT Delit Training System Requirements
+# Target Hardware: NVIDIA RTX 5090 (Blackwell)
+# Min PyTorch: 2.8.0 (Recommended 2.9.1+ for full sm_120 support)
 
-# 核心依赖
-torch>=2.0.0
-torchvision>=0.15.0
-numpy>=1.21.0
-opencv-python>=4.5.0
-tqdm>=4.62.0
-tensorboard>=2.10.0
+# Core Deep Learning (CUDA 12.8+)
+torch>=2.9.1
+torchvision>=0.24.1
+torchaudio>=2.9.1
 
-# 可选依赖（推荐）
-lpips>=0.1.4                    # 感知损失
-einops>=0.6.0                   # 张量操作
+# Hugging Face Ecosystem (Latest for Wan2.2 & LoRA)
+diffusers>=0.36.0
+peft>=0.14.0
+transformers>=4.48.0
+accelerate>=1.3.0
+safetensors>=0.5.2
 
-# HDR 图像支持（可选）
-# OpenEXR-Python>=1.3.2         # EXR 格式支持（安装可能较困难）
+# Data Processing & HDR
+numpy>=2.1.0
+opencv-python>=4.11.0
+OpenEXR>=1.4.0
+tqdm>=4.67.0
+einops>=0.8.0
 
-# 分布式训练支持（通常 PyTorch 已包含）
-# 如果需要，确保安装了对应的 NCCL 版本
-
-# 开发工具（可选）
-# pytest>=7.0.0                 # 单元测试
-# black>=22.0.0                 # 代码格式化
-# flake8>=4.0.0                 # 代码检查
+# Optional / Visualization
+tensorboard>=2.18.0
+lpips>=0.1.4
